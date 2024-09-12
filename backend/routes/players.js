@@ -12,7 +12,10 @@ router.get('/', async (req, res) => {
 
 router.get('/:playerId', async (req, res) => {
   try {
-    const player = await P{}
+    const player = await Player.find(req.params.playerId);
+    res.json(player);
+  } catch (error) {
+    res.status(500).json({message: error.message});
   }
 })
 
